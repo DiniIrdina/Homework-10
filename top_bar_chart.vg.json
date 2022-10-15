@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Top Billionaires of 2021",
+    "width": 600,
+    "config": {"axis": {"labelFont": "Helvetica", "titleFont": "Helvetica"},
+    "legend": {"labelFont": "Helvetica", "titleFont": "Helvetica"},
+    "title": {"font": "Helvetica", "subtitleFont": "Helvetica"}},
+  
+    "height": {"step": 25},
+    "data": {"url": "https://raw.githubusercontent.com/DiniIrdina/FIT3179/main/Week%209%20Homework/csv%20files/Billionaire%20Networth.csv"},
+  
+    "transform": [
+      {
+        "window": [{
+          "op": "rank",
+          "as": "rank"
+        }],
+        "sort": [{ "field": "NetWorth", "order": "descending" }]
+      }, {
+        "filter": "datum.Rank <= 10 && Country_selection == null || datum.Country == Country_selection"
+      }
+    ],
+  
+    "params": [
+  {
+  "name": "Country_selection","bind": {
+  "input": "select",
+  "options": [
+  null,
+  "Algeria", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Canada",
+  "Chile", "China", "Colombia", "Cyprus", "Czechia", "Denmark", "Egypt", "Finland",
+  "France", "Georgia", "Germany", "Greece", "Hong Kong", "Hungary", "Iceland", "India",
+  "Indonesia", "Ireland", "Israel", "Italy", "Japan", "Kazakhstan", "Lebanon", "Liechtenstein", "Macao", "Malaysia", "Mexico", "Monaco", "Morocco", "Nepal", "Netherlands", "New Zealand", "Nigeria", "Norway", "Oman", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Singapore", "Slovakia", "South Africa", "South Korea", "Spain", "Sweden", "Switzerland", "Taiwan", "Tanzania", "Thailand", "Turkey", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Venezuela", "Vietnam", "Zimbabwe"
+  ],
+  "labels":[
+  "Show All",
+  "Algeria", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Canada",
+  "Chile", "China", "Colombia", "Cyprus", "Czechia", "Denmark", "Egypt", "Finland",
+  "France", "Georgia", "Germany", "Greece", "Hong Kong", "Hungary", "Iceland", "India",
+  "Indonesia", "Ireland", "Israel", "Italy", "Japan", "Kazakhstan", "Lebanon", "Liechtenstein", "Macao", "Malaysia", "Mexico", "Monaco", "Morocco", "Nepal", "Netherlands", "New Zealand", "Nigeria", "Norway", "Oman", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Singapore", "Slovakia", "South Africa", "South Korea", "Spain", "Sweden", "Switzerland", "Taiwan", "Tanzania", "Thailand", "Turkey", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Venezuela", "Vietnam", "Zimbabwe"
+  ],
+  "name": "Country Selection: "
+  }
+  }
+  ],
+  "layer":[{
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "NetWorth", "type": "quantitative", "title": "Net Worth in $B"},
+      "y": {"field": "Name", "title": "Billionaires"},
+      "color": {"field": "NetWorth", "type": "quantitative","scale": {"range": ["#FEEBAF","#FFC300"]
+      }
+    },
+    "tooltip": [{"field":"NetWorth", "type":"quantitative","format":".1f", "title": "Net Worth in $B"},
+    {"field": "Country"}]
+    }
+  },
+  {"mark":{"type": "text",
+  "align":"right", "baseline": "line-bottom",
+  "dx": 250,"dy": 100,
+  "fontSize": 11}, "encoding": {"text":{"value":["The United States of America hold the ","record for having the most billionaires. "]},
+  "color":{"value":"black"}}}]
+    
+  }
