@@ -13,7 +13,7 @@
         "lookup": "properties.NAME",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/DiniIrdina/FIT3179/main/Week%209%20Homework/csv%20files/Billionaire%20Country.csv"
+            "url": "https://raw.githubusercontent.com/DiniIrdina/FIT3179/main/data/csv%20files/Billionaire%20Country.csv"
           },
           "key": "Country",
           "fields": ["Count", "Population"]

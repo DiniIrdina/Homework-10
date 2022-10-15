@@ -7,7 +7,7 @@
     "title": {"font": "Helvetica", "subtitleFont": "Helvetica"}},
   
     "height": {"step": 25},
-    "data": {"url": "https://raw.githubusercontent.com/DiniIrdina/FIT3179/main/Week%209%20Homework/csv%20files/Billionaire%20Networth.csv"},
+    "data": {"url": "https://raw.githubusercontent.com/DiniIrdina/FIT3179/main/data/csv%20files/Billionaire%20Networth.csv"},
   
     "transform": [
       {
